@@ -1,0 +1,51 @@
+# --- Gradle ---
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+/local.properties
+
+# --- IntelliJ/Android Studio ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/**
+
+# --- Logs and OS-specific ---
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Keystore or Signing config (if any) ---
+*.jks
+*.keystore
+*.pem
+*.key
+
+# --- Kotlin specific ---
+*.kotlin_module
+
+# --- Android generated files ---
+/captures/
+output.json
+
+# --- NDK/External native build ---
+.externalNativeBuild/
+
+# --- Caches ---
+.cxx/
+local.properties
+
+# --- Unit test, coverage ---
+*.ec
+*.hprof
+
+# --- Fastlane or CI output (if applicable) ---
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
+
+# --- Firebase ---
+google-services.json
