@@ -1,15 +1,23 @@
 [versions]
 agp = "8.10.1"
 kotlin = "2.0.21"
-coreKtx = "1.10.1"
+coreKtx = "1.16.0"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.10.0"
-activity = "1.8.0"
-constraintlayout = "2.1.4"
-reflect = "2.0.21"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.1"
+material = "1.12.0"
+activity = "1.10.1"
+constraintlayout = "2.2.1"
+reflect = "2.1.0"
+navigationFragmentKtx = "2.9.1"
+navigationUiKtx = "2.9.1"
+retrofit = "2.11.0"
+retrofit-moshi = "2.11.0"
+mockwebserver = "4.12.0"
+moshi-kotlin = "1.15.1"
+kotlin-coroutines = "1.5.0-RC-native-mt"
+lifecycle = "2.9.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,6 +29,18 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 kotlin-reflect = {group = "org.jetbrains.kotlin",name = "kotlin-reflect",version.ref="reflect"}
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit-moshi" }
+mockwebserver = { group = "com.squareup.okhttp3",name = "mockwebserver", version.ref = "mockwebserver"}
+moshi-kotlin = { group = "com.squareup.moshi",name = "moshi-kotlin",version.ref = "moshi-kotlin"}
+kotlin-coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core",version.ref = "kotlin-coroutines"}
+kotlin-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android",version.ref = "kotlin-coroutines"}
+lifecycle-runtime = { group = "androidx.lifecycle" , name = "lifecycle-runtime-ktx", version.ref = "lifecycle"}
+lifecycle-viewmodel = { group = "androidx.lifecycle" , name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
+lifecycle-livedata-core = { group = "androidx.lifecycle" , name = "lifecycle-livedata-core-ktx", version.ref = "lifecycle"}
+lifecycle-livedata = { group = "androidx.lifecycle" , name = "lifecycle-livedata-ktx", version.ref = "lifecycle"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

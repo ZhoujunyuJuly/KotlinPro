@@ -1,9 +1,7 @@
-package com.example.coroutine.KotlinLesson
+package com.example.coroutine.kotlinLesson
 
-import java.lang.reflect.Array.set
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
-import kotlin.reflect.jvm.javaField
 
 interface Animal{
     fun name()
@@ -30,7 +28,24 @@ class Human:Animal{
     /**
      * 3.懒加载，当调用的时候才真正走方法。当作单例
      */
-    private val respond : String by lazy {download()}
+    private val respond : String by lazy {
+        download()
+    }
+
+    //👆相当于这种写法，String委托给一个匿名内部接口类，在get实现缓存机制
+    val respondDetail: String by object : Lazy<String> {
+        private var cached: String? = null
+        override val value: String
+            get() {
+                if (cached == null) {
+                    cached = download()
+                }
+                return cached!!
+            }
+        override fun isInitialized() = cached != null
+    }
+
+
     override fun name() {
         use = 3f;
         println(origin)
@@ -69,7 +84,7 @@ class Bird:Animal{
 
 /**
  * 代理
- * 1.使用by可以让StartWork的实现委托给human传入的参数
+ * 1.使用by可以让 StartWork 的实现委托给 human 传入的参数
  * 2.委托类必须是接口，其实就是代理，java的代理也是通过接口实现的
  */
 class StartWork(human:Animal):Animal by human

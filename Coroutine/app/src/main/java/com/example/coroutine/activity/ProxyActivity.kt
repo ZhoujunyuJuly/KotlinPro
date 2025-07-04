@@ -1,4 +1,4 @@
-package com.example.coroutine
+package com.example.coroutine.activity
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import org.w3c.dom.Text
+import com.example.coroutine.R
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
