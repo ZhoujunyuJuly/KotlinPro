@@ -62,6 +62,7 @@ class CoroutineActivity1 : AppCompatActivity() {
              * 如果是全局作用域，需要先切换到IO线程执行网络操作
              */
             val result = withContext(Dispatchers.IO) {
+                //获取网络数据
                 provideUserServiceApi().getUser()
             }
             showText(result)

@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    //lias(libs.plugins.hilt)
 }
+
+apply(plugin = "org.jetbrains.kotlin.kapt")
 
 android {
     namespace = "com.example.coroutine"
@@ -64,7 +67,9 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata.core)
     implementation(libs.lifecycle.livedata)
-
+    //implementation(libs.google.dagger)
+    //implementation(libs.hilt.core)
+    //kapt(libs.hilt.compiler)
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

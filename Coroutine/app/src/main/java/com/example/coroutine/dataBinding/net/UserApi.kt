@@ -31,6 +31,7 @@ fun provideUserServiceApi(): UserServiceApi {
     val retrofit = Retrofit.Builder()
         .client(
             OkHttpClient.Builder()
+                //通过拦截模拟服务器数据
                 .addInterceptor(MockInterceptor())
                 .build()
         )

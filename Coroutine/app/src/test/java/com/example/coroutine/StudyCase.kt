@@ -35,14 +35,15 @@ class Coroutine{
     fun runBlocking() = runBlocking {
         val first = launch {
             delay(2000)
-            println(printInfo("第一步"))
+            printInfo("第一步")
         }
 
-        first.join()
+        //launch是立即执行
+        //first.join()
 
         val second = async {
             delay(2000)
-            println(printInfo("第二步"))
+            printInfo("第二步")
             "返回结果"
         }
 
@@ -76,24 +77,24 @@ class Coroutine{
     @Test
     fun runJoin() = runBlocking {
         val first = launch {
+            printInfo("第一步")
             delay(2000)
-            println(printInfo("第一步"))
         }
 
         /**
          * 加join会等待线程1执行完，再跑后面的。同时不会返回结果
          * launch没有await方法
          */
-        println("join的输出结果 = ${first.join()}")
+        printInfo("join的输出结果 = ${first.join()}")
 
         val second = launch {
+            printInfo("第二步")
             delay(500)
-            println(printInfo("第二步"))
             "返回结果"
         }
         val third = launch {
+            printInfo("第三步")
             delay(500)
-            println(printInfo("第三步"))
             "返回结果"
         }
     }
@@ -104,11 +105,11 @@ class Coroutine{
      */
     @Test
     fun runWait() = runBlocking {
-        println("runWait------")
+        printInfo("runWait------")
 
         val first = async {
             delay(2000)
-            println(printInfo("第一步"))
+            printInfo("第一步")
             "返回结果"
         }
 
@@ -116,16 +117,16 @@ class Coroutine{
          * await会等到拿到结果
          * 只有async有await方法，并且没有join方法
          */
-        println("join的输出结果 = ${first.await()}")
+        printInfo("join的输出结果 = ${first.await()}")
 
         val second = async {
             delay(500)
-            println(printInfo("第二步"))
+            printInfo("第二步")
             "返回结果"
         }
         val third = async {
             delay(500)
-            println(printInfo("第三步"))
+            printInfo("第三步")
             "返回结果"
         }
     }
@@ -138,6 +139,8 @@ class Coroutine{
     fun calculate() = runBlocking{
         val time = measureTime {
             val one = suspend {
+                // 挂起函数 delay 只能在挂起上下文里调用
+                // 要么是suspend，要么是协程做红域
                 delay(1000)
                 12
             }
@@ -259,11 +262,12 @@ class Coroutine{
                 delay(1000)
                 printInfo("执行结束")
             }catch (e:Exception){
-                e.printStackTrace()
+                //e.printStackTrace()
+                printInfo("$e")
             }
         }
         //要强制等待才会执行
-        //如果放到前面不会抛出异常，是因为不写join的时候没有输出打印，是因为协程并不在当前协程里执行
+        //如果放到前面不会抛出异常，是因为不写join的时候没有输出打印，因为协程并不在当前协程里执行
         //当前协程不需要等待它的执行，方法完毕就退出程序了。因为实际是两条独立的线程
         //加了这个join就是当前线程等待全局协程完成，既然已经完成，那取消也不会有异常
         //把join放最后是因为要强制等待全局协程完成，这样就会捕捉到取消异常
@@ -273,12 +277,12 @@ class Coroutine{
         printInfo("准备取消")
         scope.cancel(CancellationException("取消异常"))
         printInfo("取消完成")
-        //scope.join()
-        delay(10)
+        scope.join()
+        delay(3000)
     }
 
     /**
-     * 9.与8对照，用的是协程的通用方法，它继承了 runBlocking 的上下文
+     * 9.与8对照，用的是作用域内的协程方法，它继承了 runBlocking 的协程上下文
      *   在同一个作用域，会立即执行
      */
     @Test
@@ -306,10 +310,10 @@ class Coroutine{
          * 当使用 Dispatchers.Default（即协程在后台线程池中执行），取消信号会比在主线程（runBlocking）中更快地被传播和感知
          * 所以在 ensureActive() 中更容易观察到 isActive == false。
          *
-         * 而如果不指定调度器（默认在 runBlocking 的上下文中），协程运行在主线程上，由于协程是忙等（CPU密集循环）+ 没挂起点
+         * 而如果不指定调度器（默认在 runBlocking 的上下文中），协程运行在主线程上，由于协程是忙等（CPU密集循环）+ 没挂起点(yield是挂起点)
          * 调度器没机会调度 cancel 信号，所以 isActive 就一直是 true。
          */
-        val job = launch (Dispatchers.Default){
+        val job = launch (){
             var i = 1
             while (i <= 10) {
                 ensureActive()

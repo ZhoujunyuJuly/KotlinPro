@@ -6,7 +6,7 @@ import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
 
-class MockInterceptor() : Interceptor {
+class MockInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val json = """
             {
