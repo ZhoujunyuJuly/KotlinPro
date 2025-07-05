@@ -7,6 +7,9 @@ fun main() {
 }
 
 fun stringModify(){
+    /**
+     * 函数类型：扩展在 String 上的函数
+     */
     val str : String.() -> Unit = {
         println(this.show())
     }
@@ -17,6 +20,7 @@ fun intModify(){
     var num = 3
     println(num.modifyInt(5))
 
+    //扩展在Int上的函数
     val myModifyInt:Int.(Int)-> String = {
         "myModify -> $this + $it = ${this + it}"
     }
@@ -42,6 +46,7 @@ fun String.show() : String {
 
 /**
  * 2.传入参数修改int方法
+ *  扩展在Int上的函数
  */
 fun Int.modifyInt(it:Int): String {
     return "$this + $it = ${this + it}"
@@ -53,6 +58,7 @@ fun Int.modifyInt(it:Int): String {
  *   内联函数：public inline fun <R> run(block: () -> R): R
  */
 fun operate():Char = run {
+    //run是立刻执行的，如果是{}要到调用才会执行-》如果不是方法，而是属性的话
     'A'
 }
 

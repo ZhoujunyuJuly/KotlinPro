@@ -8,7 +8,7 @@ interface Animal{
 }
 
 class Human:Animal{
-    var origin = 3.14f
+    var origin : Float = 3.14f
         /**
          * 1.重写var类型的set和get
          */
@@ -25,10 +25,12 @@ class Human:Animal{
      */
     private var use by ::origin
 
+
     /**
      * 3.懒加载，当调用的时候才真正走方法。当作单例
      */
     private val respond : String by lazy {
+        //结果存储在内存中，之后访问不再重新计算，只调用一次
         download()
     }
 
@@ -51,7 +53,7 @@ class Human:Animal{
         println(origin)
 
         println("点击下载")
-        //Thread.sleep(3000)
+        Thread.sleep(3000)
         /**
          * 4.此时才调用download方法
          */
@@ -85,7 +87,8 @@ class Bird:Animal{
 /**
  * 代理
  * 1.使用by可以让 StartWork 的实现委托给 human 传入的参数
- * 2.委托类必须是接口，其实就是代理，java的代理也是通过接口实现的
+ * 2.‼️委托类必须是接口，其实就是代理，java的代理也是通过接口编译出不可见的字节码实现的
+ * 3.被委托的类就不用再实现该接口的方法了，可以通过传入的接口实现类调用
  */
 class StartWork(human:Animal):Animal by human
 
@@ -115,6 +118,7 @@ class WorkMate<T>(value: T){
 class Work<T>(var me:T){
     //property是属性名
     operator fun getValue(owner:T,property:KProperty<*>):T{
+        //owner是对象
         println("工作交给你了 = $me")
         return me
     }

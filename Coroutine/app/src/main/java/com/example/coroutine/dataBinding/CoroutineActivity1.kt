@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.coroutine.dataBinding.net.User
 import com.example.coroutine.dataBinding.net.provideUserServiceApi
 import com.example.coroutine.R
@@ -45,8 +46,8 @@ class CoroutineActivity1 : AppCompatActivity() {
         clickBtn = findViewById<Button>(R.id.net_button).also {
             it.setOnClickListener {
                 //useNormalRequest()
-                //globalCoroutines()
-                mainScope()
+                globalCoroutines()
+                //mainScope()
             }
         }
 
@@ -59,12 +60,9 @@ class CoroutineActivity1 : AppCompatActivity() {
     private fun globalCoroutines() {
         GlobalScope.launch(Dispatchers.Main) {
             /**
-             * 如果是全局作用域，需要先切换到IO线程执行网络操作
+             * 🌟优化点：不需要在withContext中执行网络操作，retrofit会自动切换到IO线程
              */
-            val result = withContext(Dispatchers.IO) {
-                //获取网络数据
-                provideUserServiceApi().getUser()
-            }
+            val result = provideUserServiceApi().getUser()
             showText(result)
         }
     }
