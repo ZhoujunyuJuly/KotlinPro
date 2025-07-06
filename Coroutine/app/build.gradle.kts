@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    //lias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
 }
 
-apply(plugin = "org.jetbrains.kotlin.kapt")
 
 android {
     namespace = "com.example.coroutine"
@@ -30,20 +30,25 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
-    dataBinding{
+    dataBinding {
         enable = true
     }
     buildFeatures {
         viewBinding = true
     }
 }
+
+//‼️排除一个传递依赖项
+//configurations.implementation{
+//    exclude(group = "com.intellij", module = "annotations")
+//}
 
 dependencies {
 
@@ -58,6 +63,7 @@ dependencies {
 
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.converter.gson)
     implementation(libs.kotlin.reflect)
     implementation(libs.mockwebserver)
     implementation(libs.moshi.kotlin)
@@ -68,8 +74,21 @@ dependencies {
     implementation(libs.lifecycle.livedata.core)
     implementation(libs.lifecycle.livedata)
     //implementation(libs.google.dagger)
-    //implementation(libs.hilt.core)
-    //kapt(libs.hilt.compiler)
+    implementation(libs.hilt)
+
+    implementation(libs.okhttp.logging)
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.common)
+    implementation(libs.coil)
+    implementation(libs.swipe.refreshlayout)
+
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.room.compiler)
+
+
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

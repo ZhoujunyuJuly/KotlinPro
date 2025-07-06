@@ -1,6 +1,6 @@
 [versions]
-agp = "8.10.1"
-kotlin = "2.0.21"
+agp = "8.6.0"
+kotlin = "2.1.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -9,18 +9,19 @@ appcompat = "1.7.1"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
-reflect = "2.1.0"
+
 navigationFragmentKtx = "2.9.1"
 navigationUiKtx = "2.9.1"
 retrofit = "2.11.0"
-retrofit-moshi = "2.11.0"
 mockwebserver = "4.12.0"
 moshi-kotlin = "1.15.1"
-kotlin-coroutines = "1.5.0-RC-native-mt"
+kotlin-coroutines = "1.10.1"
 lifecycle = "2.9.1"
-dagger = "2.49"
-hilt = "2.49"
-
+hilt = "2.56.1"
+room = "2.7.2"
+paging = "3.3.6"
+coil = "2.7.0"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,22 +32,44 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-kotlin-reflect = {group = "org.jetbrains.kotlin",name = "kotlin-reflect",version.ref="reflect"}
+
+kotlin-reflect = {group = "org.jetbrains.kotlin",name = "kotlin-reflect",version.ref="kotlin"}
+kotlin-coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core",version.ref = "kotlin-coroutines"}
+kotlin-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android",version.ref = "kotlin-coroutines"}
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit-moshi" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 mockwebserver = { group = "com.squareup.okhttp3",name = "mockwebserver", version.ref = "mockwebserver"}
+okhttp-logging = { group = "com.squareup.okhttp3",name = "logging-interceptor", version.ref = "mockwebserver"}
+
 moshi-kotlin = { group = "com.squareup.moshi",name = "moshi-kotlin",version.ref = "moshi-kotlin"}
-kotlin-coroutines-core = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-core",version.ref = "kotlin-coroutines"}
-kotlin-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android",version.ref = "kotlin-coroutines"}
 lifecycle-runtime = { group = "androidx.lifecycle" , name = "lifecycle-runtime-ktx", version.ref = "lifecycle"}
 lifecycle-viewmodel = { group = "androidx.lifecycle" , name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
 lifecycle-livedata-core = { group = "androidx.lifecycle" , name = "lifecycle-livedata-core-ktx", version.ref = "lifecycle"}
 lifecycle-livedata = { group = "androidx.lifecycle" , name = "lifecycle-livedata-ktx", version.ref = "lifecycle"}
-google-dagger = { group = "com.google.dagger",name = "hilt-android-gradle-plugin",version.ref = "dagger"}
-hilt-core = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+google-dagger = { group = "com.google.dagger",name = "hilt-android-gradle-plugin",version.ref = "hilt"}
+androidx-room = { group = "androidx.room",name = "room-runtime",version.ref = "room"}
+androidx-room-ktx = { group = "androidx.room",name = "room-ktx",version.ref = "room"}
+androidx-room-compiler = { group = "androidx.room",name = "room-compiler",version.ref = "room"}
+androidx-room-paging = { group = "androidx.room",name = "room-paging",version.ref = "room"}
+
+
+
+androidx-paging-runtime = { group = "androidx.paging",name = "paging-runtime",version.ref = "paging"}
+androidx-paging-common = { group = "androidx.paging",name = "paging-common",version.ref = "paging"}
+
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+swipe-refreshlayout = { group = "androidx.swiperefreshlayout",name = "swiperefreshlayout",version.ref = "swiperefreshlayout"}
+
+#hilt这里是m odule‼️注意，不是 group
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+#hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+#hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hilt-androidx-compiler = { module = "androidx.hilt:hilt-compiler", version = "1.0.0" }
 hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", version = "1.0.0" }
 
@@ -54,4 +77,5 @@ hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", 
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt",version.ref = "kotlin"}
 

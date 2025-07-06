@@ -1,7 +1,18 @@
 package com.example.coroutine.realPro.init
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-//AndroidApp
+@HiltAndroidApp
 class CarHomeApp:Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+    }
+
+    companion object {
+        lateinit var instance : CarHomeApp
+            private set
+    }
 }
