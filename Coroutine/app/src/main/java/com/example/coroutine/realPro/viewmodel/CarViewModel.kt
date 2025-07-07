@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CarViewModel @Inject constructor (
-    private val repository: Repository
+    repository: Repository
 ):ViewModel() {
     val data : LiveData<PagingData<CarBrandItemModel>> = repository
         .fetchCarBrandList()

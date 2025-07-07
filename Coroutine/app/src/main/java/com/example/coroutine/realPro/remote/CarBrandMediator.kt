@@ -6,8 +6,6 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.coroutine.realPro.db.AppDatabase
-import com.example.coroutine.realPro.db.CarBrandDao
-import com.example.coroutine.realPro.init.CarHomeApp
 import com.example.coroutine.realPro.model.CarBrandEntity
 import com.example.coroutine.realPro.model.CommonConstant
 import com.example.coroutine.realPro.net.isConnectedNetwork
@@ -55,7 +53,7 @@ class CarBrandMediator(
             /**
              * 🌟第二步，请求网络分页数据
              */
-            val result = api.fetchData(page * state.pages.size, state.config.pageSize)
+            val result = api.fetchData(page * state.config.pageSize, state.config.pageSize)
             val databaseResult = result.map {
                 CarBrandEntity(
                     id = it.id,
