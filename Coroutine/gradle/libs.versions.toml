@@ -22,6 +22,7 @@ room = "2.7.2"
 paging = "3.3.6"
 coil = "2.7.0"
 swiperefreshlayout = "1.1.0"
+rxandroid = "3.1.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,14 +42,19 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+retrofit-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "retrofit" }
+rxandroid = {group = "io.reactivex.rxjava3",name = "rxjava",version.ref = "rxandroid"}
+
 mockwebserver = { group = "com.squareup.okhttp3",name = "mockwebserver", version.ref = "mockwebserver"}
 okhttp-logging = { group = "com.squareup.okhttp3",name = "logging-interceptor", version.ref = "mockwebserver"}
 
 moshi-kotlin = { group = "com.squareup.moshi",name = "moshi-kotlin",version.ref = "moshi-kotlin"}
 lifecycle-runtime = { group = "androidx.lifecycle" , name = "lifecycle-runtime-ktx", version.ref = "lifecycle"}
-lifecycle-viewmodel = { group = "androidx.lifecycle" , name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
+lifecycle-viewmodel = { group = "androidx.lifecycle" , name = "lifecycle-viewmodel", version.ref = "lifecycle"}
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle" , name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
 lifecycle-livedata-core = { group = "androidx.lifecycle" , name = "lifecycle-livedata-core-ktx", version.ref = "lifecycle"}
 lifecycle-livedata = { group = "androidx.lifecycle" , name = "lifecycle-livedata-ktx", version.ref = "lifecycle"}
+androidx-databinding = { group = "androidx.databinding" , name = "databinding-runtime",version.ref = "agp"}
 google-dagger = { group = "com.google.dagger",name = "hilt-android-gradle-plugin",version.ref = "hilt"}
 androidx-room = { group = "androidx.room",name = "room-runtime",version.ref = "room"}
 androidx-room-ktx = { group = "androidx.room",name = "room-ktx",version.ref = "room"}

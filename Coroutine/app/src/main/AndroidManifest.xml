@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".realPro.init.CarHomeApp"
         android:allowBackup="true"
@@ -16,26 +17,32 @@
         android:theme="@style/Theme.Coroutine"
         tools:targetApi="31">
         <activity
-            android:name=".realPro.CarHomeActivity"
+            android:name=".mvvm.mvvm.MVVMActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".dataBinding.CoroutineActivity1"
+            android:name=".dagger.DaggerActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".realPro.CarHomeActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".dataBinding.CoroutineActivity1"
+            android:exported="true" />
         <activity
             android:name=".dataBinding.CoroutineActivity2"
             android:exported="true"
-            android:theme="@style/Theme.Coroutine">
-        </activity>
+            android:theme="@style/Theme.Coroutine" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -45,7 +52,7 @@
             tools:replace="android:authorities">
             <meta-data
                 android:name="com.example.coroutine.realPro.init.AppInitializer"
-                android:value="androidx.startup"/>
+                android:value="androidx.startup" />
         </provider>
     </application>
 

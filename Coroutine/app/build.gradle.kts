@@ -41,6 +41,7 @@ android {
         enable = true
     }
     buildFeatures {
+        dataBinding = true
         viewBinding = true
     }
 }
@@ -64,6 +65,9 @@ dependencies {
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.rxjava3)
+    implementation(libs.rxandroid)
+
     implementation(libs.kotlin.reflect)
     implementation(libs.mockwebserver)
     implementation(libs.moshi.kotlin)
@@ -71,8 +75,10 @@ dependencies {
     implementation(libs.kotlin.coroutines.android)
     implementation(libs.lifecycle.runtime)
     implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.livedata.core)
     implementation(libs.lifecycle.livedata)
+    implementation(libs.androidx.databinding)
     //implementation(libs.google.dagger)
     implementation(libs.hilt)
 
