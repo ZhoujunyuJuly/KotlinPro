@@ -18,6 +18,8 @@ import com.example.coroutine.realPro.net.isConnectedNetwork
  * 不论你 RemoteMediator 返回什么，UI 总是通过数据库查询流拿数据。
  *
  * RemoteMediator 的结果 🌟只是用来告知是否需要继续加载网络，控制“加载状态”和“是否触底”。
+ *
+ * 📒这里也可以用@Inject实现，同时在 Repository 里增加 Mediator 的入参就可以直接用
  */
 @OptIn(ExperimentalPagingApi::class)
 class CarBrandMediator(

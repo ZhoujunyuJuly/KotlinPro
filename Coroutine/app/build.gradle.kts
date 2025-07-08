@@ -78,6 +78,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.livedata.core)
     implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.extensions)
     implementation(libs.androidx.databinding)
     //implementation(libs.google.dagger)
     implementation(libs.hilt)
@@ -90,10 +91,10 @@ dependencies {
     implementation(libs.androidx.paging.common)
     implementation(libs.coil)
     implementation(libs.swipe.refreshlayout)
+    implementation(libs.glide)
 
     kapt(libs.hilt.compiler)
     kapt(libs.androidx.room.compiler)
-
 
 
     implementation(libs.androidx.navigation.fragment.ktx)

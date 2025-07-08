@@ -16,6 +16,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+/**
+ * 这个没有使用@Inject 是因为 OkHttpClient 和 Retrofit 都是第三方库
+ * 无法在本类上写@Inject
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetWorkModule{

@@ -11,6 +11,10 @@ import com.example.coroutine.realPro.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * HiltViewModel 关键字
+ * 作用是让 ViewModel 可以使用 @Inject constructor
+ */
 @HiltViewModel
 class CarViewModel @Inject constructor (
     repository: Repository

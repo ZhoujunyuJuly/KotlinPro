@@ -16,6 +16,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 
+/**
+ * TODO 这个实现可以更简化，使用@Inject constructor
+ */
 class CarBrandRepositoryImp(
     private val api:CarBrandService,
     private val database: AppDatabase,
@@ -37,7 +40,15 @@ class CarBrandRepositoryImp(
         ){
             //2.从数据库取出数据
             database.carBrandDao().getCarBrand()
-        }.flow.flowOn(Dispatchers.IO).map {  pagingData ->
+        }
+        /**
+         *  它的源码内部调用了 PagingSource.load() 然后将结果封装成 PagingData，再转换为 Flow。
+         *  public fun <Key : Any, Value : Any> Pager<Key, Value>.flow: Flow<PagingData<Value>>
+         *
+         */
+            .flow
+            .flowOn(Dispatchers.IO)
+            .map {  pagingData ->
             pagingData.map {
                 //3.数据库类型转换，转成UI需要的类型
                 carEntity2ItemModel.map(it)

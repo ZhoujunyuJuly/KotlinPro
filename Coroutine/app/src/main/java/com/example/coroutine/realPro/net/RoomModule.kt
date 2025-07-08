@@ -10,6 +10,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * 这个没有使用@Inject constructor 的形式，是因为需要用到 application
+ * 🌟application 在单例作用域 SingletonComponent 会自动生成
+ * 🌟@Inject 作用在没有入参的情况
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object RoomModule {

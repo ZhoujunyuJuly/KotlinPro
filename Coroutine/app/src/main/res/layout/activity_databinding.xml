@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="NetWorkImage"
+            type="String" />
+
+        <variable
+            name="DefaultImage"
+            type="int" />
+        
+<!--        <variable-->
+<!--            name="userViewModel"-->
+<!--            type="com.example.coroutine.jetpack.databinding.model.observable.UseViewModel" />-->
+
+<!--        <variable-->
+<!--            name="userViewModel"-->
+<!--            type="com.example.coroutine.jetpack.databinding.model.field.UserViewModelField" />-->
+
+        <variable
+            name="userViewModel"
+            type="com.example.coroutine.jetpack.databinding.model.solution.UserModelSolution" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".jetpack.databinding.DataBindingActivity">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            app:NetWorkImage="@{NetWorkImage}"
+            app:DefaultImage="@{DefaultImage}"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:text="@{userViewModel.userName}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/showText"
+            android:text="文字"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>
