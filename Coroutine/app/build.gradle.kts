@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safeargs)
 }
 
 
@@ -18,6 +19,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions{
+            kapt {
+                arguments {
+                    arg("room.schemaLocation", "$projectDir/schemas")
+                }
+            }
+        }
     }
 
     buildTypes {
@@ -43,6 +51,7 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        aidl = true
     }
 }
 
@@ -53,6 +62,7 @@ android {
 
 dependencies {
 
+    implementation(project(":server"))
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3") // 或最新版本
     testImplementation("junit:junit:4.13.2")
 
@@ -92,6 +102,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.swipe.refreshlayout)
     implementation(libs.glide)
+    implementation(libs.work.runtime)
 
     kapt(libs.hilt.compiler)
     kapt(libs.androidx.room.compiler)
@@ -99,6 +110,12 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment)
+//    implementation(libs.androidx.navigation.safe.args)
+
+
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

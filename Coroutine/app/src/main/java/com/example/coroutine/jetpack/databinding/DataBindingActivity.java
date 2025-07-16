@@ -24,6 +24,7 @@ public class DataBindingActivity extends AppCompatActivity {
         viewBinding.setNetWorkImage(CommonConstant.IMAGE_URL);
         //viewBinding.setDefaultImage(R.mipmap.ic_launcher);
 //        viewBinding.setUserViewModel(new UserViewModelField());
+        //双向绑定要配合JDK11
         viewBinding.setUserViewModel(new UserModelSolution());
         viewBinding.setLifecycleOwner(this);
     }

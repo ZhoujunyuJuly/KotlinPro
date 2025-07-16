@@ -12,7 +12,7 @@ class CarMockInterceptor : Interceptor {
         Thread.sleep(2000)
         val request = chain.request()
         val url = request.url
-        val since = url.queryParameter("since")?.toIntOrNull()?:1
+        val since = url.queryParameter("since")?.toIntOrNull()?:0
         val pageSize = url.queryParameter("pageSize")?.toIntOrNull()?:8
         val item = (1..100).map {
             """{"id": $it, "name": "User Car$it", "icon": "${CommonConstant.IMAGE_URL}"}"""

@@ -1,100 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:name=".realPro.init.CarHomeApp"
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Coroutine"
-        tools:targetApi="31">
-        <activity
-            android:name=".jetpack.databinding.DataBindingActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<application
+    android:name=".realPro.init.CarHomeApp"
+    android:allowBackup="true"
+    android:dataExtractionRules="@xml/data_extraction_rules"
+    android:fullBackupContent="@xml/backup_rules"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.Coroutine"
+    tools:targetApi="31">
+    <service
+        android:name=".RemoteService"
+        android:exported="true"
+        android:process=":remote" >
+        <intent-filter>
+            <action android:name="com.example.coroutine.RemoteService"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
 
-        <service
-            android:name=".jetpack.livecycle.MyLocationService"
-            android:exported="false" />
+    </service>
+    <activity
+        android:name="com.example.coroutine.framework.AIDLActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <activity
-            android:name=".jetpack.livecycle.LifeServiceActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+    <activity
+        android:name="com.example.coroutine.jetpack.paging.PagingActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="com.example.coroutine.jetpack.workmanager.WorkManagerActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".jetpack.room.RoomOptimizeActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".jetpack.livecycle.ChronometerActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".jetpack.room.RoomActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".exPro.CakeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".jetpack.navigation.MainActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".mvvm.mvvm.MVVMActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        <nav-graph android:value="@navigation/my_nav_graph" />
+    </activity>
+    <activity
+        android:name=".jetpack.livecycle.ChronometerActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".dagger.DaggerActivity"
-            android:exported="true" />
-        <activity
-            android:name=".realPro.CarHomeActivity"
-            android:exported="true" />
-        <activity
-            android:name=".dataBinding.CoroutineActivity1"
-            android:exported="true" />
-        <activity
-            android:name=".dataBinding.CoroutineActivity2"
-            android:exported="true"
-            android:theme="@style/Theme.Coroutine" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".jetpack.databinding.DataBindingActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge"
-            tools:replace="android:authorities">
-            <meta-data
-                android:name="com.example.coroutine.realPro.init.AppInitializer"
-                android:value="androidx.startup" />
-        </provider>
-    </application>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
+    <service
+        android:name=".jetpack.livecycle.MyLocationService"
+        android:exported="false" />
+
+    <activity
+        android:name=".jetpack.livecycle.LifeServiceActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".exPro.CakeActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".mvvm.mvvm.MVVMActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".dagger.DaggerActivity"
+        android:exported="true" />
+    <activity
+        android:name=".realPro.CarHomeActivity"
+        android:exported="true" />
+    <activity
+        android:name=".dataBinding.CoroutineActivity1"
+        android:exported="true" />
+    <activity
+        android:name=".dataBinding.CoroutineActivity2"
+        android:exported="true"
+        android:theme="@style/Theme.Coroutine" />
+    <activity
+        android:name=".activity.MainActivity"
+        android:exported="true" />
+
+    <provider
+        android:name="androidx.startup.InitializationProvider"
+        android:authorities="${applicationId}.androidx-startup"
+        android:exported="false"
+        tools:node="merge"
+        tools:replace="android:authorities">
+        <meta-data
+            android:name="com.example.coroutine.realPro.init.AppInitializer"
+            android:value="androidx.startup" />
+    </provider>
+</application>
 </manifest>
