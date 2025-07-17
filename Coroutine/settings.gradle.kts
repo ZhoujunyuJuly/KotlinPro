@@ -23,3 +23,5 @@ rootProject.name = "Coroutine"
 include(":app")
 include(":server")
 include(":SkinTool")
+include(":origincode")
+include(":arouter-annotation")

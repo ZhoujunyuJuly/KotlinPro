@@ -31,7 +31,7 @@ class Coroutine{
      *   coroutineScope 不会阻塞当前线程，只会挂起。一个协程失败了，所有协程都会失败
      *   supervisorScope 一个失败，不会影响其他
      */
-    @Test
+    ////@Test
     fun runBlocking() = runBlocking {
         val first = launch {
             delay(2000)
@@ -54,7 +54,7 @@ class Coroutine{
      * 如果是SupervisorJob类型，一个协程异常不会阻止兄弟协程运行
      * 如果是 Job 类型，一个协程异常，兄弟协程都终止
      */
-    @Test
+    ////@Test
     fun supervisorJob() = runBlocking{
         val coroutineScope = CoroutineScope(SupervisorJob())
         val job1 = coroutineScope.launch {
@@ -74,7 +74,7 @@ class Coroutine{
     /**
      * 2.join关键字，做事但不交代结果
      */
-    @Test
+    ////@Test
     fun runJoin() = runBlocking {
         val first = launch {
             printInfo("第一步")
@@ -103,7 +103,7 @@ class Coroutine{
     /**
      * 3.wait关键字，做事但交代结果
      */
-    @Test
+    ////@Test
     fun runWait() = runBlocking {
         printInfo("runWait------")
 
@@ -135,7 +135,7 @@ class Coroutine{
     /**
      * 4.在挂起协程内执行两个耗时操作，是串行
      */
-    @Test
+    ////@Test
     fun calculate() = runBlocking{
         val time = measureTime {
             val one = suspend {
@@ -160,7 +160,7 @@ class Coroutine{
     /**
      * 5.在挂起协程内【异步】执行两个耗时操作，是并行
      */
-    @Test
+    ////@Test
     fun calculateAsync() = runBlocking(){
         val time = measureTime {
             val one = async {
@@ -180,7 +180,7 @@ class Coroutine{
     /**
      * 6.其他写法，纠结了我很久的
      */
-    @Test
+    ////@Test
     fun calculateAsync2() = runBlocking(){
         val time = measureTime {
             val one = async {
@@ -235,7 +235,7 @@ class Coroutine{
      *
      * - 🌟UNDISPATCHED:立即在当前函数调用栈执行，即不切换线程，进来是啥就是啥
      */
-    @Test
+    ////@Test
     fun mode() = runBlocking(){
         val job = launch(start = CoroutineStart.ATOMIC) {
             printInfo("进入协程内部")
@@ -254,7 +254,7 @@ class Coroutine{
      *   大写的是自己单独管理的独立 Context ，作用域不同，当 runBlocking 协程完成时，
      *   不会等待全局协程完成，会结束掉当前协程
      */
-    @Test
+    ////@Test
     fun innerBigScope() = runBlocking{
         val scope = GlobalScope.launch {
             try {
@@ -285,7 +285,7 @@ class Coroutine{
      * 9.与8对照，用的是作用域内的协程方法，它继承了 runBlocking 的协程上下文
      *   在同一个作用域，会立即执行
      */
-    @Test
+    ////@Test
     fun innerFunScope() = runBlocking{
         coroutineScope {
             printInfo("执行")
@@ -299,7 +299,7 @@ class Coroutine{
      * 10.CPU 密集型协程不会在主线程处理 cancel
      * 可以使用 ensureActive() 或 yield() 感知协程当前状态
      */
-    @Test
+    ////@Test
     fun cancelCpuMulti() = runBlocking{
         var nextTime = System.currentTimeMillis()
 

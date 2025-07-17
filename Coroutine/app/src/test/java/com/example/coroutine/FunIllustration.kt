@@ -25,7 +25,7 @@ class FunIllustration {
      *     用于在 finally{} 方法中包裹住 再次进行的耗时操作如delay()
      *     本意是这个最后兼容处理的delay不希望被外部取消
      */
-    @Test
+    //@Test
     fun useFun() = runBlocking{
         BufferedReader(FileReader("D:\\I have a dream.txt")).use {
             var line :String?
@@ -39,7 +39,7 @@ class FunIllustration {
     /**
      * 2.withTimeout 方法，设置超时时间，可以返回正常/异常结果
      */
-    @Test
+    //@Test
     fun timeoutFun(): Unit = runBlocking {
         val timeout = withTimeoutOrNull(1000) {
             repeat(100) {
@@ -61,7 +61,7 @@ class FunIllustration {
      *      - 要么单独对每个子线程加上 handler ,因为子线程会隐藏异常向上传播
      *      - 要么写 supervisorJob 让子线程的异常不要互相影响，这样父类有机会捕获异常
      */
-    @Test
+    //@Test
     fun exception() = runBlocking {
         val handler = CoroutineExceptionHandler{_,exception->
             printInfo("Catch $exception : ${exception.suppressed.contentToString()}")

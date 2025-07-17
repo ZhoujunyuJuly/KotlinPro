@@ -20,12 +20,20 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions{
-            kapt {
-                arguments {
-                    arg("room.schemaLocation", "$projectDir/schemas")
-                }
+            //noinspection WrongGradleMethod
+//            kapt {
+//                arguments {
+//                    arg("room.schemaLocation", "$projectDir/schemas")
+//                }
+//            }
+
+            annotationProcessorOptions{
+                arguments["module"] = project.name
+                arguments["packageNameForAPT"] = rootProject.extra["packageNameForAPT"] as String
+                arguments["room.schemaLocation"] = "$projectDir/schemas"
             }
         }
+
     }
 
     buildTypes {
@@ -114,6 +122,11 @@ dependencies {
 //    implementation(libs.androidx.navigation.safe.args)
 
 
+    annotationProcessor(project(":arouter-annotation"))
+    //背后的服务，能够监听你是否在编译中
+//    compileOnly("com.google.auto.service:auto-service:1.1.1")
+//    annotationProcessor("com.google.auto.service:auto-service:1.1.1")
+    implementation(project(":arouter-annotation"))
 
 
     testImplementation(libs.junit)

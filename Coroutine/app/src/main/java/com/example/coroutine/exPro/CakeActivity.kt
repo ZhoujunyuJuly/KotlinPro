@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.arouter_annotation.api.ARouter
 import com.example.coroutine.R
 import com.example.coroutine.databinding.ActivityCakeBinding
 import com.example.coroutine.databinding.CakeItemBinding
@@ -15,6 +16,7 @@ import com.example.coroutine.realPro.binding.adapter.CarBrandAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
+@ARouter(path = "/app/CakeActivity")
 class CakeActivity : AppCompatActivity() {
 
     private val mViewBinding : ActivityCakeBinding by lazy {

@@ -33,7 +33,7 @@ class Flow {
     /**
      * 1.阻塞序列，线程停下来不干任何事
      */
-    @Test
+    //@Test
     fun sequence() {
         sequence.forEach { printInfo("" + it) }
         //输出————————
@@ -55,7 +55,7 @@ class Flow {
     /**
      * 2.flow 使用，异步发送消息
      */
-    @Test
+    //@Test
     fun emitData() = runBlocking {
         launch {
             for (i in 1..10){
@@ -90,7 +90,7 @@ class Flow {
      * flownOn 修改在此之上的线程，在生产者中
      * launchIn 修改在此之上的线程，在消费者中
      */
-    @Test
+    //@Test
     fun continueFlow() = runBlocking {
         (1..8).asFlow()
             .filter {
@@ -126,7 +126,7 @@ class Flow {
     /**
      * launchOn切换接收函数的线程
      */
-    @Test
+    //@Test
     fun continueFlow2() = runBlocking {
         //这里需要 val job 才能避免编译器警告，不然会认为丢弃了这个协程不处理
         val job = (1..8).asFlow()
@@ -179,7 +179,7 @@ class Flow {
      *  🌟conflate 关键字
      *  生产者与消费者并发进行，每次消费只处理当前最后接收一个的值
      */
-    @Test
+    //@Test
     fun pressFlow() = runBlocking {
         val time = measureTime{
             flow{

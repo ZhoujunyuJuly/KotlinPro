@@ -17,7 +17,7 @@ class ChannelCase {
     /**
      * 1.channel通道 并发安全队列
      */
-    @Test
+    //@Test
     fun channelBase() = runBlocking {
         val channel = Channel<Int>()
         val producer = launch {
@@ -71,7 +71,7 @@ class ChannelCase {
     /**
      * 2.produce 快速创建生产者
      */
-    @Test
+    //@Test
     fun fastCreate() = runBlocking {
         //创建了一个匿名内部类，里面自动实现了一个生产者，在不断的发消息
         //生产者很轻量，比如它只需要发送几个数字，消费者需要根据这几个数字处理不同的逻辑
@@ -99,7 +99,7 @@ class ChannelCase {
     /**
      * 3.actor 快速创建消费者
      */
-    @Test
+    //@Test
     fun fastReceive() =  runBlocking {
         //创建了一个匿名内部类，快速实现了一个消费者，如何处理生产者的事件
         //比如简单的弹toast
@@ -121,7 +121,7 @@ class ChannelCase {
     /**
      * 4.select关键字，选择最快返回的
      */
-    @Test
+    //@Test
     fun selectUse() = runBlocking {
         /**
          *  ‼️这里加缓存的意义

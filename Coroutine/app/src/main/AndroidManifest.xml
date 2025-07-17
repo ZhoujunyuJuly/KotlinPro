@@ -146,7 +146,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:exported="true"
         android:theme="@style/Theme.Coroutine" />
     <activity
-        android:name=".activity.MainActivity"
+        android:name=".kotlinLesson.MainActivity"
         android:exported="true" />
 
     <provider
