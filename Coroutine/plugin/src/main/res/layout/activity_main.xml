@@ -5,6 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".arouter.ARoutActivity1">
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="我是真正的插件"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="346dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

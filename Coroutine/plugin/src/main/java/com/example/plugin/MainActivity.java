@@ -1,4 +1,4 @@
-package com.example.origincode;
+package com.example.plugin;
 
 import android.os.Bundle;
 
@@ -8,17 +8,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.arouter_annotation.api.ARouter;
-
-
-@ARouter(path = "/originCode/ARoutActivity1")
-public class ARoutActivity1 extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("zjy,启动插件了！！！！");
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_arout);
+        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -1,4 +1,4 @@
-package com.example.origincode;
+package com.example.origincode.arouter;
 
 import android.os.Bundle;
 
@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.arouter_annotation.api.ARouter;
+import com.example.origincode.R;
 
 
 @ARouter(path = "/originCode/ARoutActivity2")

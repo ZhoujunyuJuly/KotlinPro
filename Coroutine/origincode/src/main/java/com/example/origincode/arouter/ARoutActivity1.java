@@ -1,4 +1,4 @@
-package com.example.origincode;
+package com.example.origincode.arouter;
 
 import android.os.Bundle;
 
@@ -9,10 +9,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.arouter_annotation.api.ARouter;
+import com.example.origincode.R;
 
 
-@ARouter(path = "/originCode/ARoutActivity3")
-public class ARoutActivity3 extends AppCompatActivity {
+@ARouter(path = "/originCode/ARoutActivity1")
+public class ARoutActivity1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

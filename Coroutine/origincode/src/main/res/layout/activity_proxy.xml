@@ -5,6 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".arouter.ARoutActivity1">
+    tools:context=".plugin.ProxyActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="我是代理"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="346dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

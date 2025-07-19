@@ -7,6 +7,7 @@ import static com.example.arouter_annotation.ProcessorConfig.PATH_VAR1;
 
 import com.example.arouter_annotation.api.ARouter;
 import com.example.arouter_annotation.api.ARouterPath;
+import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
@@ -26,6 +27,7 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedOptions;
@@ -59,6 +61,7 @@ import javax.tools.Diagnostic;
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 @SupportedAnnotationTypes("com.example.arouter_annotation.api.ARouter")
 @SupportedOptions({MODULE,PACKAGE})
+@AutoService(Processor.class)
 public class ARouterProcessor extends AbstractProcessor {
 
     public static final String MODULE = "module";

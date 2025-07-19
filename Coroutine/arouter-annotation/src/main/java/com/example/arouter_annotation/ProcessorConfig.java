@@ -12,6 +12,13 @@ public class ProcessorConfig {
     public static final String PATH_FILE_NAME = "ARouter$$Path$$";
     public static final String GROUP_FILE_NAME = "ARouter$$Group$$";
 
+    public static final String PARAMETER_CLASS = "com.example.arouter_annotation.parameter";
+    public static final String PARAMETER_PARAMETER = PARAMETER_CLASS + "Parameter";
+    public static final String PARAMETER_PARAMETER_PARAMETER_GET = PARAMETER_CLASS + "ParameterGet";
+    public static final String PARAMETER_METHOD_NAME = "getParameterMap";
+
+
+
 
 
 }
