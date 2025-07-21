@@ -23,6 +23,17 @@ android {
                 arguments["packageNameForAPT"] = rootProject.extra["packageNameForAPT"] as String
             }
         }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags("")
+            }
+        }
+
+        ndk{
+            abiFilters += listOf("armeabi-v7a","x86_64")
+        }
+
     }
 
     buildTypes {
@@ -40,6 +51,12 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+
+    externalNativeBuild{
+        cmake{
+            path = file("CMakeLists.txt")
+        }
     }
 }
 
