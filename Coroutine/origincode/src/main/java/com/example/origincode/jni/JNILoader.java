@@ -7,6 +7,7 @@ public class JNILoader {
      * @return
      */
 
+    public native String GetNativeString();
     /**
      * 1.并且加载JNI
      */

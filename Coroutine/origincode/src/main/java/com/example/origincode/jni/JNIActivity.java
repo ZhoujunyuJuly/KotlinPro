@@ -25,6 +25,7 @@ public class JNIActivity extends AppCompatActivity {
             return insets;
         });
 
+
         showJniText();
     }
 

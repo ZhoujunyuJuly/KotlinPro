@@ -8,8 +8,11 @@ xmlns:tools="http://schemas.android.com/tools">
 
 <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <queries>
+        <package android:name="com.example.server" />
+    </queries>
 <application
-    android:name=".realPro.init.CarHomeApp"
+    android:name="com.example.server.realPro.init.CarHomeApp"
     android:allowBackup="true"
     android:dataExtractionRules="@xml/data_extraction_rules"
     android:fullBackupContent="@xml/backup_rules"
@@ -19,52 +22,45 @@ xmlns:tools="http://schemas.android.com/tools">
     android:supportsRtl="true"
     android:theme="@style/Theme.Coroutine"
     tools:targetApi="31">
-    <service
-        android:name=".RemoteService"
-        android:exported="true"
-        android:process=":remote" >
-        <intent-filter>
-            <action android:name="com.example.coroutine.RemoteService"/>
-            <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
+<!--    <service-->
+<!--        android:name=".RemoteService"-->
+<!--        android:exported="true"-->
+<!--        android:process=":remote" >-->
+<!--        <intent-filter>-->
+<!--            <action android:name="com.example.coroutine.RemoteService"/>-->
+<!--            <category android:name="android.intent.category.DEFAULT"/>-->
+<!--        </intent-filter>-->
 
-    </service>
-    <activity
-        android:name="com.example.coroutine.framework.AIDLActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+<!--    </service>-->
+
 
     <activity
-        android:name="com.example.coroutine.jetpack.paging.PagingActivity"
+        android:name="com.example.server.framework.AIDLActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity
-        android:name="com.example.coroutine.jetpack.workmanager.WorkManagerActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-    <activity
-        android:name=".jetpack.room.RoomOptimizeActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
+    <activity
+        android:name="com.example.server.jetpack.paging.PagingActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
     <activity
-        android:name=".jetpack.room.RoomActivity"
+        android:name="com.example.server.jetpack.workmanager.WorkManagerActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="com.example.server.jetpack.room.RoomOptimizeActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -73,7 +69,16 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
     <activity
-        android:name=".jetpack.navigation.MainActivity"
+        android:name="com.example.server.jetpack.room.RoomActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name="com.example.server.jetpack.navigation.MainActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -83,7 +88,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <nav-graph android:value="@navigation/my_nav_graph" />
     </activity>
     <activity
-        android:name=".jetpack.livecycle.ChronometerActivity"
+        android:name="com.example.server.jetpack.livecycle.ChronometerActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -92,7 +97,7 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
     <activity
-        android:name=".jetpack.databinding.DataBindingActivity"
+        android:name="com.example.server.jetpack.databinding.DataBindingActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -102,11 +107,11 @@ xmlns:tools="http://schemas.android.com/tools">
     </activity>
 
     <service
-        android:name=".jetpack.livecycle.MyLocationService"
+        android:name="com.example.server.jetpack.livecycle.MyLocationService"
         android:exported="false" />
 
     <activity
-        android:name=".jetpack.livecycle.LifeServiceActivity"
+        android:name="com.example.server.jetpack.livecycle.LifeServiceActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -115,7 +120,7 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
     <activity
-        android:name=".exPro.CakeActivity"
+        android:name="com.example.server.exPro.CakeActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -124,7 +129,7 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
     <activity
-        android:name=".mvvm.mvvm.MVVMActivity"
+        android:name="com.example.server.mvvm.mvvm.MVVMActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -133,20 +138,20 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
     <activity
-        android:name=".dagger.DaggerActivity"
+        android:name="com.example.server.dagger.DaggerActivity"
         android:exported="true" />
     <activity
-        android:name=".realPro.CarHomeActivity"
+        android:name="com.example.server.realPro.CarHomeActivity"
         android:exported="true" />
     <activity
-        android:name=".dataBinding.CoroutineActivity1"
+        android:name="com.example.server.dataBinding.CoroutineActivity1"
         android:exported="true" />
     <activity
-        android:name=".dataBinding.CoroutineActivity2"
+        android:name="com.example.server.dataBinding.CoroutineActivity2"
         android:exported="true"
         android:theme="@style/Theme.Coroutine" />
     <activity
-        android:name=".kotlinLesson.MainActivity"
+        android:name="com.example.server.kotlinLesson.MainActivity"
         android:exported="true" />
 
     <provider
@@ -156,7 +161,7 @@ xmlns:tools="http://schemas.android.com/tools">
         tools:node="merge"
         tools:replace="android:authorities">
         <meta-data
-            android:name="com.example.coroutine.realPro.init.AppInitializer"
+            android:name="com.example.server.realPro.init.AppInitializer"
             android:value="androidx.startup" />
     </provider>
 </application>

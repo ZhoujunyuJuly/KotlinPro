@@ -6,7 +6,7 @@
     <data>
         <variable
             name="person"
-            type="com.example.coroutine.jetpack.room.db.PersonBean" />
+            type="com.example.server.jetpack.room.db.PersonBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

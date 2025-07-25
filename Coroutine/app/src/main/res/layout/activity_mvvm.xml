@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.coroutine.mvvm.mvvm.ContentViewModel" />
+            type="com.example.server.mvvm.mvvm.ContentViewModel" />
 
     </data>
 

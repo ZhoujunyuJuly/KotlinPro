@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.coroutine.jetpack.navigation.DetailFragment"
+        android:name="com.example.server.jetpack.navigation.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.coroutine.jetpack.navigation.HomeFragment"
+        android:name="com.example.server.jetpack.navigation.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action

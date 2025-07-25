@@ -5,7 +5,7 @@
     <data>
         <variable
             name="carBrand"
-            type="com.example.coroutine.realPro.model.CarBrandItemModel" />
+            type="com.example.server.realPro.model.CarBrandItemModel" />
 
     </data>
 

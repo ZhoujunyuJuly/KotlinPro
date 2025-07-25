@@ -8,4 +8,12 @@
     android:layout_height="match_parent"
     tools:context=".framework.AIDLActivity">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/textView4"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:text="AIDL页面"
+      android:gravity="center"
+      tools:layout_editor_absoluteX="176dp"
+      tools:layout_editor_absoluteY="328dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

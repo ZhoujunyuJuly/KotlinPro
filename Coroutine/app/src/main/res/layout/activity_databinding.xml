@@ -22,7 +22,7 @@
 
         <variable
             name="userViewModel"
-            type="com.example.coroutine.jetpack.databinding.model.solution.UserModelSolution" />
+            type="com.example.server.jetpack.databinding.model.solution.UserModelSolution" />
 
     </data>
 

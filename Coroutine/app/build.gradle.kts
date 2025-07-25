@@ -70,7 +70,7 @@ android {
 
 dependencies {
 
-    implementation(project(":server"))
+    //implementation(project(":server"))
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3") // 或最新版本
     testImplementation("junit:junit:4.13.2")
 

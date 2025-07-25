@@ -6,7 +6,7 @@
     <data>
         <variable
             name="movie"
-            type="com.example.coroutine.jetpack.paging.Movie" />
+            type="com.example.server.jetpack.paging.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

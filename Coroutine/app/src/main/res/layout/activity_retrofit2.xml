@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModelCoroutine"
-            type="com.example.coroutine.dataBinding.net.MainViewModel" />
+            type="com.example.server.dataBinding.net.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
